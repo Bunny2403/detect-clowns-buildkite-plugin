@@ -1,28 +1,15 @@
 steps:
-  - label: "🚀 Setup Environment"
-    commands:
-      - mkdir -p /plugin  # Create the directory if it doesn't
-      - git clone https://github.com/Bunny2403/detect-clowns-buildkite-plugin.git /plugin
-    agents:
-      docker: "*"
-
-  - label: "🤡 :hammer: Run Plugin Tests"
+  - label: "🤡 :hammer:"
     plugins:
       - plugin-tester#v1.1.0: ~
-    agents:
-      docker: "*"
 
   - label: ":sparkles: lint"
     plugins:
       - plugin-linter#v3.2.0:
           id: detect-clowns
-    agents:
-      docker: "*"
 
   - label: ":shell: Shellcheck"
     plugins:
       - shellcheck#v1.3.0:
-          files: hooks/*.sh
-    agents:
-      docker: "*"
+          files: hooks/**
 
