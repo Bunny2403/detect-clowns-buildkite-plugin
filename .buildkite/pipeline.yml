@@ -7,10 +7,8 @@ steps:
     plugins:
       - plugin-linter#v3.2.0:
           id: detect-clowns
-	  path: "$BUILDKITE_REPO/detect-clowns-buildkite-plugin"
 
   - label: ":shell: Shellcheck"
     plugins:
       - shellcheck#v1.3.0:
           files: hooks/**
-
